@@ -1,4 +1,5 @@
 # Set up a simple sudoers file
 ---
 - name: Sudoers file
-  template: src=sudoers.j2 dest=/etc/sudoers validate='/usr/sbin/visudo -cf %s'
+  become: yes
+  template: src=sudoers.j2 dest=/etc/sudoers.d/ansible validate='/usr/sbin/visudo -cf %s'
